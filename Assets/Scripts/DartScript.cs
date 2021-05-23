@@ -5,17 +5,17 @@ using UnityEngine;
 public class DartScript : MonoBehaviour
 {
 
-    //private float velocity = 50f;
+    Vector3 gunBarrelOffset = new Vector3(-0.13f, 0, 0.055f);
 
-    // Start is called before the first frame update
+    float velocity = 25f;
+
     private void Start()
     {
-        Destroy(gameObject, 3);
-    }
+        GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * velocity);
 
-    private void Update()
-    {
-        //transform.Translate(0, 0, Time.deltaTime * velocity);
+        transform.Translate(gunBarrelOffset);
+
+        Destroy(gameObject, 3);
     }
 
 }
